@@ -12,11 +12,15 @@ btnAdd.addEventListener("click", function () {
 
   const li = document.createElement("li");
   li.textContent = taskText;
+  li.addEventListener("click", function () {
+    li.classList.toggle("completed");
+  });
 
   const btnDelete = document.createElement("button");
-  btnDelate.textContent = "Hapus";
+  btnDelete.textContent = "Hapus";
 
-  btnDelete.addEventListener("click", function () {
+  btnDelete.addEventListener("click", function (event) {
+    event.stopPropagation();
     li.remove();
   });
 
@@ -28,5 +32,6 @@ btnAdd.addEventListener("click", function () {
 
 inputTask.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
+    btnAdd.click();
   }
 });
