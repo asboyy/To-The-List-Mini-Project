@@ -14,12 +14,12 @@ function addTaskToDOM(task) {
   li.addEventListener("click", function () {
     task.completed = !task.completed;
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    li.classList.toggle("completed");
+    renderTasks(currentfilter);
   });
 
   //Buat Tombol DELETE
   const btnDelete = document.createElement("button");
-  btnDelete.textContent = "Hapus";
+  btnDelete.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
   //Event Delete
   btnDelete.addEventListener("click", function (event) {
     event.stopPropagation();
@@ -90,11 +90,13 @@ inputTask.addEventListener("keypress", function (event) {
 });
 
 //Update filters//
+let currentfilter = "all";
 const filterAll = document.getElementById("filterAll");
 const filterActive = document.getElementById("filterActive");
 const filterCompleted = document.getElementById("filterCompleted");
 
-function renderTasks(filter = "All") {
+function renderTasks(filter = "all") {
+  currentfilter = filter; //fungsi untuk menyimpan filter aktif//
   listTask.innerHTML = "";
 
   let filteredTasks = tasks;
@@ -122,7 +124,7 @@ window.addEventListener("load", function () {
   renderTasks();
 
   //Event Filter//
-  filterall.addEventListener("click", function () {
+  filterAll.addEventListener("click", function () {
     renderTasks("all");
   });
 
