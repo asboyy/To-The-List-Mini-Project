@@ -1,18 +1,21 @@
 <!doctype html>
 <html>
   <head>
-    <title>To The List Project</title>
+    <title>To Do List Project</title>
     <link rel="stylesheet" href="style.css" />
     
     <link
       <link rel="stylesheet" href="style.css">
 
-  <!-- 🔥 FONT AWESOME -->
+  <!--  FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
     <div class="container">
-      <h1>To The List</h1>
+      <h1>To Do List</h1>
+      <button id="toggleTheme" class="theme-toggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
 
       <div class="input-group">
         <input type="text" id="inputTask" placeholder="Tambah Tugas..." />
@@ -25,7 +28,10 @@
         <button id="filterCompleted">Completed</button>
       </div>
 
+      <p id="taskCounter"></p>
+
       <ul id="listTask"></ul>
+
     </div>
     <script src="script.js"></script>
   </body>
